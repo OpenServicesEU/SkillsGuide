@@ -1,0 +1,176 @@
+# SkillsGuide
+# Copyright (C) 2021 OpenServices e.U. <office@openservies.at>
+# This file is distributed under the same license as the SkillGuide package.
+# Michael Fladischer <michael@openservices.at>, 2021
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-09 12:11+0000\n"
+"PO-Revision-Date: 2021-12-09 11:08+0100\n"
+"Last-Translator: Michael Fladischer <michael@openservices.at>\n"
+"Language-Team: OpenServices e.U. <office@openservices.at>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: SkillsGuide/admin.py:9 SkillsGuide/apps.py:7
+msgid "SkillsGuide"
+msgstr "SkillsGuide"
+
+#: SkillsGuide/admin.py:10 SkillsGuide/admin.py:11
+#: SkillsGuide/templates/SkillsGuide/content.html:77
+msgid "Administration"
+msgstr "Administration"
+
+#: SkillsGuide/models.py:23 SkillsGuide/models.py:35 SkillsGuide/models.py:55
+#: SkillsGuide/models.py:71
+msgid "Title"
+msgstr "Titel"
+
+#: SkillsGuide/models.py:24
+msgid "Acronym"
+msgstr "Kürzel"
+
+#: SkillsGuide/models.py:72 SkillsGuide/models.py:97 SkillsGuide/models.py:103
+msgid "Description"
+msgstr "Beschreibung"
+
+#: SkillsGuide/models.py:73
+msgid "Revision"
+msgstr "Überarbeitung"
+
+#: SkillsGuide/models.py:110
+msgid "Active"
+msgstr "Aktiv"
+
+#: SkillsGuide/models.py:111
+msgid "Top-Download"
+msgstr "Top-Download"
+
+#: SkillsGuide/models.py:116
+msgid "Download"
+msgstr "Download"
+
+#: SkillsGuide/models.py:117 SkillsGuide/templates/SkillsGuide/content.html:44
+msgid "Downloads"
+msgstr "Downloads"
+
+#: SkillsGuide/models.py:145
+msgid "Homepage"
+msgstr "Homepage"
+
+#: SkillsGuide/models.py:146 SkillsGuide/templates/SkillsGuide/content.html:104
+msgid "About us"
+msgstr "Über uns"
+
+#: SkillsGuide/models.py:159
+msgid "Text"
+msgstr "Text"
+
+#: SkillsGuide/models.py:160
+msgid "Texts"
+msgstr "texts"
+
+#: SkillsGuide/settings.py:129
+msgid "German"
+msgstr "Deutsch"
+
+#: SkillsGuide/settings.py:130
+msgid "English"
+msgstr "Englisch"
+
+#: SkillsGuide/templates/SkillsGuide/article/detail.html:46
+msgid "Images"
+msgstr "Bilder"
+
+#: SkillsGuide/templates/SkillsGuide/article/detail.html:71
+msgid "Videos"
+msgstr "Videos"
+
+#: SkillsGuide/templates/SkillsGuide/article/detail.html:96
+msgid "Sources"
+msgstr "Quellen"
+
+#: SkillsGuide/templates/SkillsGuide/base.html:19
+#: SkillsGuide/templates/SkillsGuide/content.html:13
+#: SkillsGuide/templates/SkillsGuide/content.html:21
+msgid "Graz Skills Guide"
+msgstr ""
+
+#: SkillsGuide/templates/SkillsGuide/base.html:29
+msgid "Language"
+msgstr "Sprache"
+
+#: SkillsGuide/templates/SkillsGuide/chapter/detail.html:23
+msgid "Keywords"
+msgstr "Schlselgwörter"
+
+#: SkillsGuide/templates/SkillsGuide/content.html:29
+msgid "Chapters"
+msgstr "Kapitel"
+
+#: SkillsGuide/templates/SkillsGuide/content.html:60
+msgid "Search"
+msgstr "Suche"
+
+#: SkillsGuide/templates/SkillsGuide/content.html:82
+msgid "Logout"
+msgstr "Abmelden"
+
+#: SkillsGuide/templates/SkillsGuide/content.html:90
+msgid "Login"
+msgstr "Anmelden"
+
+#: SkillsGuide/templates/SkillsGuide/index.html:29
+msgid "Previous"
+msgstr "Vor"
+
+#: SkillsGuide/templates/SkillsGuide/index.html:33
+msgid "Next"
+msgstr "Weiter"
+
+#: SkillsGuide/templates/SkillsGuide/search.html:23
+#, python-format
+msgid ""
+"\n"
+"    %(count)s results for \"%(query)s\"\n"
+"    "
+msgstr ""
+
+#: SkillsGuide/templates/SkillsGuide/search.html:45
+msgid "No results found."
+msgstr "Keine Suchtreffer gefunden."
+
+#: SkillsGuide/templates/SkillsGuide/table.html:66
+msgid "previous"
+msgstr "vor"
+
+#: SkillsGuide/templates/SkillsGuide/table.html:86
+msgid "next"
+msgstr "weiter"
+
+#: SkillsGuide/validators.py:31
+#, python-format
+msgid ""
+"Extension '%(extension)s' not allowed. Allowed extensions are: "
+"'%(extensions)s.'"
+msgstr ""
+
+#: SkillsGuide/validators.py:34
+#, python-format
+msgid ""
+"MIME type '%(mimetype)s' is not valid. Allowed types are: %(mimetypes)s."
+msgstr ""
+
+#: SkillsGuide/validators.py:95
+#, python-brace-format
+msgid "Document does not contain a sheet named {s}."
+msgstr ""
+
+#: SkillsGuide/validators.py:100
+msgid "File is no a valid XLS document."
+msgstr ""

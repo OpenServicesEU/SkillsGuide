@@ -1,0 +1,49 @@
+<!doctype html>
+{% load static %}
+{% load i18n %}
+{% load compress %}
+{% load analytical %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    {% analytical_head_top %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{% static "SkillsGuide/favicon.svg" %}">
+    {% compress css %}
+    <link rel="stylesheet" href="{% static "fonts-fork-awesome/scss/fork-awesome.scss" %}" type="text/x-scss" charset="utf-8">
+    {% block style %}
+    <link rel="stylesheet" href="{% static "SkillsGuide/style.scss" %}" type="text/x-scss" charset="utf-8">
+    {% endblock %}
+    {% endcompress %}
+    <title>{% trans "Graz Skills Guide" %}</title>
+    {% analytical_head_bottom %}
+  </head>
+  <body>
+    {% analytical_body_top %}
+    {% block body %}{% endblock %}
+      <div class="position-fixed language-selector btn-group dropup d-none d-sm-block">
+        <button type="button" class="btn btn-outline-light btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-language" aria-hidden="true"></i>
+          <span class="d-none d-md-inline">
+            {% trans "Language" %}
+          </span>
+        </button>
+        <div class="dropdown-menu">
+          {% for code, title in LANGUAGES %}
+          <a class="dropdown-item" href="?language={{ code }}">
+            {{ title }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% compress js %}
+    <script src="{% static "jquery/jquery.js" %}"></script>
+    <script src="{% static "popper/popper.js" %}"></script>
+    <script src="{% static "bootstrap/dist/js/bootstrap.js" %}"></script>
+    {% block script %}{% endblock %}
+    <script src="{% static "SkillsGuide/global.js" %}"></script>
+    {% endcompress %}
+    {% analytical_body_bottom %}
+  </body>
+</html>

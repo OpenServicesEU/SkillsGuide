@@ -1,0 +1,61 @@
+{% extends "SkillsGuide/content.html" %}
+
+{% load i18n %}
+
+{% block style %}
+{{ block.super }}
+<style>
+{% for chapter in chapters %}
+a > .chapter-{{ chapter.pk }} {
+  background-color: {{ chapter.light }};
+}
+a:hover > .chapter-{{ chapter.pk }} {
+  background-color: {{ chapter.dark }};
+}
+{% endfor %}
+</style>
+{% endblock %}
+
+{% block content %}
+<main role="main" class="container">
+<section class="row">
+  <h1 class="col-md">
+    {% blocktrans with count=paginator.count query=query %}
+    {{ count }} results for "{{ query}}"
+    {% endblocktrans %}
+  </h1>
+</section>
+{% if query %}
+<div class="list-group">
+{% for result in object_list %}
+  <a href="{{ result.object.get_absolute_url }}" class="list-group-item list-group-item-action">
+    {{ result.object }}
+    <span class="badge badge-primary badge-pill float-right chapter-{{ result.chapter }}">
+      {{ result.verbose_name }}
+    </span>
+    {% if result.rendered %}
+    <p>
+    <small class="text-muted">{{ result.rendered }}</small>
+    </p>
+    {% endif %}
+  </a>
+{% empty %}
+<div class="alert alert-primary" role="alert">
+  <i class="fa fa-info-circle" aria-hidden="true"></i>
+  {% trans "No results found." %}
+</div>
+{% endfor %}
+</div>
+{% if page_obj.has_previous or page_obj.has_next %}
+<div>
+  {% if page_obj.has_previous %}<a href="?q={{ query }}&amp;page={{ page_obj.previous_page_number }}">{% endif %}&laquo; Previous{% if page_obj.has_previous %}</a>{% endif %}
+  |
+  {% if page_obj.has_next %}<a href="?q={{ query }}&amp;page={{ page_obj.next_page_number }}">{% endif %}Next &raquo;{% if page_obj.has_next %}</a>{% endif %}
+</div>
+{% endif %}
+
+{% else %}
+{# Show some example queries to run, maybe query syntax, something else? #}
+{% endif %}
+</main>
+{% endblock %}

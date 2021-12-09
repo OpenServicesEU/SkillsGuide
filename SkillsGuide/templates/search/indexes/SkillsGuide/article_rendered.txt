@@ -1,0 +1,1 @@
+{{ object.description|striptags|safe|truncatewords:20 }}

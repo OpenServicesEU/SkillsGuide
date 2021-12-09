@@ -1,0 +1,9 @@
+{{ object.title }}
+
+{% for tag in object.tags.all %}
+{{ tag }}
+{% endfor %}
+
+{% for section in object.section_set.all %}
+{{ section.title }}
+{% endfor %}

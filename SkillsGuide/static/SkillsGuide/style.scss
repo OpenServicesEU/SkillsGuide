@@ -1,0 +1,74 @@
+$dark: theme(dark, rgb(0,121,52));
+$light: theme(light, rgb(52,178,51));
+$orange: rgb(255,127,69);
+$gray: rgb(77,79,83);
+$theme-colors: (
+  "primary": $dark,
+  "danger": $orange,
+  "dark": $gray,
+  "light": $light
+);
+$jumbotron-color: rgb(255,255,255);
+$jumbotron-bg: rgb(0,130,145);
+$footer-height: 60px;
+@import "fonts.scss";
+@import "bootstrap/bootstrap.scss";
+body {
+  padding-top: 8rem;
+  margin-bottom: $footer-height * 1.5;
+}
+.navbar {
+  border-bottom: 0.25rem solid $dark;
+}
+// Bootstrap v4 Specific Tweaks
+.alert.mdi::before { margin: 0 3px 0 -3px; }
+.btn.mdi:not(:empty)::before{ margin: 0 3px 0 -3px; }
+.breadcrumb-item {
+  a.mdi, span.mdi {
+    &::before { margin: 0 2px 0 -2px }
+  }
+}
+.dropdown-item.mdi::before { margin: 0 8px 0 -10px; }
+.list-group-item.mdi::before { margin: 0 6px 0 -6px; }
+.modal-title.mdi::before { margin: 0 4px 0 0; }
+.nav-link.mdi::before { margin: 0 4px 0 -4px; }
+.navbar-brand {
+  .fa {
+    color: $dark;
+  }
+  &.mdi::before { margin: 0 4px 0 0; }
+}
+#title {
+  font-family: "Corporate A";
+  color: $dark;
+}
+.popover-title.mdi::before { margin: 0 4px 0 -4px; }
+// Collapse Demo
+.btn.mdi-chevron-up.collapsed::before {
+  content: '\f140';
+}
+span.asteriskField {
+  display: none;
+}
+//@import "fonts-fork-awesome/scss/fork-awesome.scss";
+.carousel-caption {
+  background-color: RGBA(45, 122, 117, 0.6);
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: $footer-height;
+  line-height: $footer-height; /* Vertically center the text there */
+  background-color: $gray;
+}
+.language-selector {
+  bottom: 11px;
+  right: 11px;
+  width: 10em;
+}

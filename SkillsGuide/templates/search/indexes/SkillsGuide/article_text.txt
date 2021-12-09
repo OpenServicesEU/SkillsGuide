@@ -1,0 +1,18 @@
+{{ object.section.title }}
+{{ object.title }}
+
+{{ object.description|safe }}
+
+{% for image in object.image_set.all %}
+{{ image.description }}
+{% endfor %}
+
+{% for video in object.video_set.all %}
+{{ video.description }}
+{% endfor %}
+
+{% for source in object.source_set.all %}
+{{ source.authors }}
+{{ source.title }}
+{{ source.published }}
+{% endfor %}

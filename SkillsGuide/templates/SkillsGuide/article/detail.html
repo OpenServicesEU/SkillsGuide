@@ -1,0 +1,114 @@
+{% extends "SkillsGuide/content.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "SkillsGuide/style.scss" %}" type="text/x-scss" charset="utf-8" theme-dark="{{ object.section.chapter.dark }}" theme-light="{{ object.section.chapter.light }}">
+<link rel="stylesheet" href="{% static "SkillsGuide/style.scss" %}" type="text/x-scss" charset="utf-8" theme-dark="{{ object.section.chapter.dark }}" theme-light="{{ object.section.chapter.light }}">
+<link rel="stylesheet" href="{% static "lightbox2/css/lightbox.css" %}" type="text/css" charset="utf-8">
+{% endblock %}
+
+{% block script %}
+<script src="{% static "lightbox2/js/lightbox.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+<main role="main" class="container">
+<section class="row p-3 bg-light">
+  <h1 class="col-md">
+    {{ object.section.title }}
+    <p class="text-primary lead">
+      {{ object.title }}
+      <span class="badge badge-dark">{{ article.competence_level }}</span>
+    </p>
+  </h1>
+  <div class="col-md-4">
+    <div class="btn-group float-right mt-2" role="group">
+      <a class="btn btn-primary btn-md" href="{% url "chapter-detail" slug=object.section.chapter.slug %}#{{ object.section.slug }}">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        {{ object.section.chapter.title }}
+      </a>
+    </div>
+  </div>
+</section>
+<hr>
+<section class="row mb-4">
+  <div class="col">
+    {{ object.description|safe }}
+  </div>
+</section>
+{% if object.image_set.exists %}
+<section class="row mb-4">
+  <div class="col">
+    <h4 class="bg-light p-3" id="images">
+      <i class="fa fa-book" aria-hidden="true"></i>
+      {% trans "Images" %}
+      <a href="#images" class="text-dark float-right">
+        <i class="fa fa-link" aria-hidden="true"></i>
+      </a>
+    </h4>
+    <div class="card-deck">
+      {% for image in object.image_set.all %}
+      <div class="card w-25">
+        <a href="{{ image.file.url }}" data-lightbox="images">
+        <img class="card-img-top" src="{{ image.file.url }}" alt="{{ image.description }}">
+        </a>
+        <div class="card-footer">
+          <small class="text-muted">{{ image.description }}</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% if object.video_set.exists %}
+<section class="row mb-4">
+  <div class="col">
+    <h4 class="bg-light p-3" id="videos">
+      <i class="fa fa-book" aria-hidden="true"></i>
+      {% trans "Videos" %}
+      <a href="#videos" class="text-dark float-right">
+        <i class="fa fa-link" aria-hidden="true"></i>
+      </a>
+    </h4>
+    <div class="card-deck">
+      {% for video in object.video_set.all %}
+      <div class="card w-25">
+        <video class="card-img-top" controls>
+          <source src="{{ video.file.url }}" type="video/mp4">
+        </video>
+        <div class="card-footer">
+          <small class="text-muted">{{ video.description }}</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% if object.source_set.exists %}
+<section class="row">
+  <div class="col">
+    <h4 class="bg-light p-3" id="sources">
+      <i class="fa fa-book" aria-hidden="true"></i>
+      {% trans "Sources" %}
+      <a href="#sources" class="text-dark float-right">
+        <i class="fa fa-link" aria-hidden="true"></i>
+      </a>
+    </h4>
+    <ul>
+      {% for source in object.source_set.all %}
+      <li>
+        <strong>{{ source.authors }}</strong>
+        <em>{{ source.title }}</em>
+        {{ source.published }}
+      </li>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+</main>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "SkillsGuide/base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block body %}
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+    </a>
+    <div class="d-xl-none">
+      {% trans "Graz Skills Guide" %}
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse flex-column align-items-start ml-lg-2 ml-0" id="navbarCollapse">
+      <div class="d-none d-xl-flex justify-content-center w-100">
+        <h2 id="title">
+        {% trans "Graz Skills Guide" %}
+        </h2>
+      </div>
+      <div class="navbar-nav flex-row mb-md-1 mt-md-0 mb-3 mt-2 w-100">
+        <ul class="navbar-nav mr-auto my-auto">
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDownloadLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-graduation-cap d-none d-xl-inline" aria-hidden="true"></i>
+              {% trans "Chapters" %}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownDownloadLink">
+              {% for chapter in chapters %}
+              <a class="dropdown-item" href="{% url "chapter-detail" slug=chapter.slug %}">
+                <i class="fa fa-book" aria-hidden="true" style="color: {{ chapter.dark }}"></i>
+                {{ chapter.title }}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+          {% if top_downloads|length > 0 %}
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDownloadLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-download d-none d-xl-inline" aria-hidden="true"></i>
+              {% trans "Downloads" %}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownDownloadLink">
+              {% for download in top_downloads %}
+              <a class="dropdown-item" href="{{ download.file.url }}">
+                <i class="fa fa-{{ download.icon }}" aria-hidden="true"></i>
+                {{ download.title }}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </ul>
+        <div class="btn-group">
+          <form class="form-inline btn mt-2 mt-md-0" action="{% url "search" %}">
+            <div class="input-group">
+              <input type="text" class="form-control" name="q" placeholder="{% trans "Search" %}" aria-label="{% trans "Search" %}" aria-describedby="nav-button-search">
+              <div class="input-group-append">
+                <button class="btn btn-outline-light" type="submit" id="nav-button-search">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          {% if user.is_authenticated %}
+          <div class="dropdown btn">
+            <a class="dropdown-toggle btn btn-outline-light my-2 my-sm-0" href="#" id="navbarDropdownUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownUserLink">
+              {% if user.is_staff %}
+              <a class="dropdown-item" href="{% url 'admin:index' %}">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+                {% trans "Administration" %}
+              </a>
+              {% endif %}
+              <a class="dropdown-item" href="{{ logout_url }}">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                {% trans "Logout" %}
+              </a>
+            </div>
+          </div>
+          {% else %}
+          <div class="btn">
+            <a class="btn btn-outline-light my-2 my-sm-0" href="{{ login_url }}">
+              <i class="fa fa-sign-in" aria-hidden="true"></i>
+              {% trans "Login" %}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+{% block content %}
+{% endblock %}
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">
+      &copy; {% now "Y" %} {{ copyright }} | <a href="{% url "about" %}">{% trans "About us" %}</a>
+    </span>
+  </div>
+</footer>
+{% endblock %}

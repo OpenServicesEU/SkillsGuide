@@ -1,0 +1,58 @@
+{% extends "SkillsGuide/content.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "SkillsGuide/style.scss" %}" type="text/x-scss" charset="utf-8" theme-dark="{{ object.dark }}" theme-light="{{ object.light }}">
+{% endblock %}
+
+{% block content %}
+<main role="main" class="container">
+<div class="jumbotron bg-primary">
+  <div class="row">
+  <div class="col-8">
+  <h1 class="display-4">{{ object.title }}</h1>
+  <p class="lead">
+  {% for section in object.section_set.all %}
+  {{ section.title }}{% if not forloop.last %} |{% endif %}
+  {% endfor %}
+  </p>
+  <hr class="my-4">
+  <p class="lead">
+  {% trans "Keywords" %}:
+  </p>
+  <p>
+  {% for tag in object.tags.all %}
+  {{ tag }}{% if not forloop.last %}, {% endif %}
+  {% endfor %}
+  </p>
+  </div>
+  <div class="col-4" style="background-size: cover; background-image: url({{ object.image.url }});">
+  </div>
+  </div>
+</div>
+{% for section in object.section_set.all %}
+<section class="row mb-4">
+  <div class="col">
+    <div class="card" id="{{ section.slug }}">
+    <div class="card-header bg-primary">
+      {{ section.title }}
+      <a href="#{{ section.slug }}" class="text-light float-right">
+        <i class="fa fa-link" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="list-group list-group-flush">
+      {% for article in section.article_set.all %}
+      <a href="{% url "article-detail" chapter=article.section.chapter.slug slug=article.slug %}" class="list-group-item list-group-item-action">
+        {{ article.title }}
+        <span class="badge badge-primary badge-pill float-right">{{ article.competence_level }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+</section>
+{% endfor %}
+</main>
+{% endblock %}
