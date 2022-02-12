@@ -99,7 +99,7 @@ msgstr "Quellen"
 #: SkillsGuide/templates/SkillsGuide/content.html:13
 #: SkillsGuide/templates/SkillsGuide/content.html:21
 msgid "Graz Skills Guide"
-msgstr ""
+msgstr "Grazer Skills Guide"
 
 #: SkillsGuide/templates/SkillsGuide/base.html:29
 msgid "Language"
@@ -107,7 +107,7 @@ msgstr "Sprache"
 
 #: SkillsGuide/templates/SkillsGuide/chapter/detail.html:23
 msgid "Keywords"
-msgstr "Schlselgwörter"
+msgstr "Schlüsselwörter"
 
 #: SkillsGuide/templates/SkillsGuide/content.html:29
 msgid "Chapters"
