@@ -38,7 +38,7 @@ class Chapter(OrderedModel):
     light = ColorField()
     slug = AutoSlugField(populate_from=["title"])
 
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     class Meta(OrderedModel.Meta):
         pass
