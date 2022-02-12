@@ -161,3 +161,31 @@ class Text(OrderedModel):
 
     def __str__(self):
         return f"{self.title} ({self.placement})"
+
+
+class Slide(OrderedModel):
+    title = models.CharField(max_length=128)
+    active = models.BooleanField(default=True)
+    image = models.ImageField(upload_to=Uuid4Upload)
+
+    class Meta(OrderedModel.Meta):
+        verbose_name = _("Slide")
+        verbose_name_plural = _("Slides")
+
+    def __str__(self):
+        return self.title
+
+
+class News(TimeStampedModel):
+    title = models.CharField(max_length=128)
+    body = RichTextField()
+    datetime = models.DateTimeField(auto_now_add=True)
+    active = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    class Meta:
+        verbose_name = _("News")
+        verbose_name_plural = _("News")
+        ordering = ("-datetime",)
+
+    def __str__(self):
+        return self.title

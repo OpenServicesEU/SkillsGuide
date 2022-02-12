@@ -60,3 +60,14 @@ class TextAdmin(OrderedModelAdmin):
     list_display = ("title", "placement")
     list_filter = ("placement",)
     search_fields = ("title", "body")
+
+
+@admin.register(models.Slide)
+class SlideAdmin(OrderedModelAdmin):
+    list_display = ("title", "move_up_down_links")
+
+
+@admin.register(models.News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ("title", "active", "datetime")
+    search_fields = ("title",)

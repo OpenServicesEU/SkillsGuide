@@ -26,6 +26,11 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["slides"] = models.Slide.objects.filter(active=True)
+        context["news"] = models.News.objects.filter(
+            Q(active=None) | Q(active__lte=timezone.now())
+        )[:10]
+        context["downloads"] = models.Download.objects.filter(active=True)
         context["texts"] = models.Text.objects.filter(placement=models.Text.HOMEPAGE)
         return context
 
