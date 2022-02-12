@@ -300,6 +300,11 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 DJANGO_TABLES2_TEMPLATE = "SkillsGuide/table.html"
 
+IMAGEKIT_DEFAULT_CACHEFILE_BACKEND = "imagekit.cachefiles.backends.Simple"
+IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY = "imagekit.cachefiles.strategies.JustInTime"
+
+RQ_QUEUES = {}
+
 if "DJANGO_LOCAL_CONFIGURATION" in os.environ:
     filename = os.path.abspath(os.environ.get("DJANGO_LOCAL_CONFIGURATION"))
     if os.access(filename, os.R_OK):
