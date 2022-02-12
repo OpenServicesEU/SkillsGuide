@@ -54,20 +54,21 @@
     {% endfor %}
   </div>
   <div class="col-sm-4">
-    {% for university in universities %}
-    <a href="{{ university.url }}" target="_blank" class="text-decoration-none">
-      <div class="card mb-3">
+    {% for chapter in chapters %}
+    <a href="{{ chapter.get_absolute_url }}" class="text-decoration-none text-black">
+      <div class="card mb-3 chapter-{{ chapter.pk }}">
         <div class="row no-gutters">
           <div class="col-md-4 mx-auto">
-            <img src="{{ university.logo.url }}" class="card-img mw-100 mt-3 px-3" alt="{{ university }}">
+            <img src="{{ chapter.image.url }}" class="card-img mw-100 mt-3 mb-3 px-3" alt="{{ chapter.title }}">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">{{ university }}</h5>
+              <h5 class="card-title">{{ chapter.title }}</h5>
               <p class="card-text">
               <small class="text-muted">
-                <i class="fa fa-link" aria-hidden="true"></i>
-                {{ university.url }}
+                {% for section in chapter.section_set.all %}
+                {{ section.title }}{% if not forloop.last %} | {% endif %} 
+                {% endfor %}
               </small>
               </p>
             </div>

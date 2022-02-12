@@ -7,7 +7,7 @@
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+      <i class="fa fa-home fa-2x" aria-hidden="true"></i>
     </a>
     <div class="d-xl-none">
       {% trans "Graz Skills Guide" %}
@@ -31,7 +31,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownDownloadLink">
               {% for chapter in chapters %}
               <a class="dropdown-item" href="{% url "chapter-detail" slug=chapter.slug %}">
-                <i class="fa fa-book" aria-hidden="true" style="color: {{ chapter.dark }}"></i>
+                <i class="fa fa-book" aria-hidden="true"></i>
                 {{ chapter.title }}
               </a>
               {% endfor %}

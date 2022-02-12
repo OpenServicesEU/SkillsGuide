@@ -4,8 +4,7 @@
 {% load i18n %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static "SkillsGuide/style.scss" %}" type="text/x-scss" charset="utf-8" theme-dark="{{ object.section.chapter.dark }}" theme-light="{{ object.section.chapter.light }}">
-<link rel="stylesheet" href="{% static "SkillsGuide/style.scss" %}" type="text/x-scss" charset="utf-8" theme-dark="{{ object.section.chapter.dark }}" theme-light="{{ object.section.chapter.light }}">
+{{ block.super }}
 <link rel="stylesheet" href="{% static "lightbox2/css/lightbox.css" %}" type="text/css" charset="utf-8">
 {% endblock %}
 
@@ -15,17 +14,17 @@
 
 {% block content %}
 <main role="main" class="container">
-<section class="row p-3 bg-light">
+<section class="row p-3 bg-primary text-white">
   <h1 class="col-md">
     {{ object.section.title }}
-    <p class="text-primary lead">
+    <p class="lead">
       {{ object.title }}
       <span class="badge badge-dark">{{ article.competence_level }}</span>
     </p>
   </h1>
   <div class="col-md-4">
     <div class="btn-group float-right mt-2" role="group">
-      <a class="btn btn-primary btn-md" href="{% url "chapter-detail" slug=object.section.chapter.slug %}#{{ object.section.slug }}">
+      <a class="btn btn-dark btn-md" href="{% url "chapter-detail" slug=object.section.chapter.slug %}#{{ object.section.slug }}">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
         {{ object.section.chapter.title }}
       </a>

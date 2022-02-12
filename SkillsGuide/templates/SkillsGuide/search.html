@@ -2,20 +2,6 @@
 
 {% load i18n %}
 
-{% block style %}
-{{ block.super }}
-<style>
-{% for chapter in chapters %}
-a > .chapter-{{ chapter.pk }} {
-  background-color: {{ chapter.light }};
-}
-a:hover > .chapter-{{ chapter.pk }} {
-  background-color: {{ chapter.dark }};
-}
-{% endfor %}
-</style>
-{% endblock %}
-
 {% block content %}
 <main role="main" class="container">
 <section class="row">
