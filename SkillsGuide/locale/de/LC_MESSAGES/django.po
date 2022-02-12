@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-09 12:11+0000\n"
+"POT-Creation-Date: 2022-02-12 20:20+0000\n"
 "PO-Revision-Date: 2021-12-09 11:08+0100\n"
 "Last-Translator: Michael Fladischer <michael@openservices.at>\n"
 "Language-Team: OpenServices e.U. <office@openservices.at>\n"
@@ -22,7 +22,7 @@ msgid "SkillsGuide"
 msgstr "SkillsGuide"
 
 #: SkillsGuide/admin.py:10 SkillsGuide/admin.py:11
-#: SkillsGuide/templates/SkillsGuide/content.html:77
+#: SkillsGuide/templates/SkillsGuide/content.html:93
 msgid "Administration"
 msgstr "Administration"
 
@@ -55,7 +55,7 @@ msgstr "Top-Download"
 msgid "Download"
 msgstr "Download"
 
-#: SkillsGuide/models.py:117 SkillsGuide/templates/SkillsGuide/content.html:44
+#: SkillsGuide/models.py:117 SkillsGuide/templates/SkillsGuide/content.html:60
 msgid "Downloads"
 msgstr "Downloads"
 
@@ -63,7 +63,7 @@ msgstr "Downloads"
 msgid "Homepage"
 msgstr "Homepage"
 
-#: SkillsGuide/models.py:146 SkillsGuide/templates/SkillsGuide/content.html:104
+#: SkillsGuide/models.py:146 SkillsGuide/templates/SkillsGuide/content.html:120
 msgid "About us"
 msgstr "Über uns"
 
@@ -73,7 +73,19 @@ msgstr "Text"
 
 #: SkillsGuide/models.py:160
 msgid "Texts"
-msgstr "texts"
+msgstr "Texte"
+
+#: SkillsGuide/models.py:172
+msgid "Slide"
+msgstr "Slide"
+
+#: SkillsGuide/models.py:173
+msgid "Slides"
+msgstr "Slides"
+
+#: SkillsGuide/models.py:186 SkillsGuide/models.py:187
+msgid "News"
+msgstr "News"
 
 #: SkillsGuide/settings.py:129
 msgid "German"
@@ -83,15 +95,15 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: SkillsGuide/templates/SkillsGuide/article/detail.html:46
+#: SkillsGuide/templates/SkillsGuide/article/detail.html:45
 msgid "Images"
 msgstr "Bilder"
 
-#: SkillsGuide/templates/SkillsGuide/article/detail.html:71
+#: SkillsGuide/templates/SkillsGuide/article/detail.html:70
 msgid "Videos"
 msgstr "Videos"
 
-#: SkillsGuide/templates/SkillsGuide/article/detail.html:96
+#: SkillsGuide/templates/SkillsGuide/article/detail.html:95
 msgid "Sources"
 msgstr "Quellen"
 
@@ -105,7 +117,7 @@ msgstr "Grazer Skills Guide"
 msgid "Language"
 msgstr "Sprache"
 
-#: SkillsGuide/templates/SkillsGuide/chapter/detail.html:23
+#: SkillsGuide/templates/SkillsGuide/chapter/detail.html:19
 msgid "Keywords"
 msgstr "Schlüsselwörter"
 
@@ -113,15 +125,19 @@ msgstr "Schlüsselwörter"
 msgid "Chapters"
 msgstr "Kapitel"
 
-#: SkillsGuide/templates/SkillsGuide/content.html:60
+#: SkillsGuide/templates/SkillsGuide/content.html:44
+msgid "Clinical traineeships checklist"
+msgstr "Famulatur-Checkliste"
+
+#: SkillsGuide/templates/SkillsGuide/content.html:76
 msgid "Search"
 msgstr "Suche"
 
-#: SkillsGuide/templates/SkillsGuide/content.html:82
+#: SkillsGuide/templates/SkillsGuide/content.html:98
 msgid "Logout"
 msgstr "Abmelden"
 
-#: SkillsGuide/templates/SkillsGuide/content.html:90
+#: SkillsGuide/templates/SkillsGuide/content.html:106
 msgid "Login"
 msgstr "Anmelden"
 
@@ -133,7 +149,7 @@ msgstr "Vor"
 msgid "Next"
 msgstr "Weiter"
 
-#: SkillsGuide/templates/SkillsGuide/search.html:23
+#: SkillsGuide/templates/SkillsGuide/search.html:9
 #, python-format
 msgid ""
 "\n"
@@ -141,7 +157,7 @@ msgid ""
 "    "
 msgstr ""
 
-#: SkillsGuide/templates/SkillsGuide/search.html:45
+#: SkillsGuide/templates/SkillsGuide/search.html:31
 msgid "No results found."
 msgstr "Keine Suchtreffer gefunden."
 
