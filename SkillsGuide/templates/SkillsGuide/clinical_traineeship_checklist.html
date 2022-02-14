@@ -29,7 +29,7 @@
       </div>
       <div class="card-body">
         {% for skill in activity.skills %}
-        <a href="skill.target" class="btn btn-primary btn-block">{{ skill.name }}</a>
+        <a href="{{ skill.target }}" class="btn btn-primary btn-block">{{ skill.name }}</a>
         {% endfor %}
       </div>
     </div>
