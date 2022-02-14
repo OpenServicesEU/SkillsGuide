@@ -17,6 +17,7 @@ from haystack.generic_views import SearchView as BaseSearchView
 
 from . import filters, models, tables
 from .layout import IconButton
+from .utils import load_clinical_traineeship_checklist
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +42,16 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["texts"] = models.Text.objects.filter(placement=models.Text.ABOUT)
+        return context
+
+
+class ClinicalTraineeshipChecklistView(TemplateView):
+    template_name = "SkillsGuide/clinical_traineeship_checklist.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["texts"] = models.Text.objects.filter(placement=models.Text.CLINICAL_TRAINEESHIP_CHECKLIST)
+        context["clinical_traineeship_checklist"] = load_clinical_traineeship_checklist()
         return context
 
 

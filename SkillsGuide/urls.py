@@ -27,6 +27,7 @@ urlpatterns = [
     ),
     path("", views.IndexView.as_view(), name="index"),
     path("about/", views.AboutView.as_view(), name="about"),
+    path("clinical_traineeship_checklist/", views.ClinicalTraineeshipChecklistView.as_view(), name="clinical_traineeship_checklist"),
     path("search/", views.SearchView.as_view(), name="search"),
     path("<str:slug>/", views.ChapterDetailView.as_view(), name="chapter-detail"),
     path("<str:chapter>/<str:slug>", views.ArticleDetailView.as_view(), name="article-detail"),

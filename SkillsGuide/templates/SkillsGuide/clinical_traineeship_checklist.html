@@ -1,0 +1,47 @@
+{% extends "SkillsGuide/content.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load imagekit %}
+
+{% block content %}
+<main role="main" class="container">
+<section class="row">
+  <h1 class="col-md">
+    {% trans "Clinical traineeships checklist" %}
+  </h1>
+</section>
+<section class="row">
+  <div class="col-md">
+  {% for text in texts %}
+  {{ text.body|safe }}
+  {% endfor %}
+  </div>
+</section>
+{% if clinical_traineeship_checklist|length > 0 %}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+  {% for activity in clinical_traineeship_checklist.values %}
+  {% if activity.skills|length %}
+  <div class="col mb-3">
+    <div class="card h-100">
+      <div class="card-header">
+        {{ activity.name }}
+      </div>
+      <div class="card-body">
+        {% for skill in activity.skills %}
+        <a href="skill.target" class="btn btn-primary btn-block">{{ skill.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-primary" role="alert">
+  <i class="fa fa-info-circle" aria-hidden="true"></i>
+  {% trans "No activities or skills could be imported from LZK." %}
+</div>
+{% endif %}
+</main>
+{% endblock %}
