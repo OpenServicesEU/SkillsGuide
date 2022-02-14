@@ -141,9 +141,11 @@ class Text(OrderedModel):
 
     HOMEPAGE = "homepage"
     ABOUT = "about"
+    CLINICAL_TRAINEESHIP_CHECKLIST = "clinical_traineeship_checklist"
     PLACEMENT_CHOICES = (
         (HOMEPAGE, _("Homepage")),
         (ABOUT, _("About us")),
+        (CLINICAL_TRAINEESHIP_CHECKLIST, _("Clinical traineeship checklist")),
     )
 
     title = models.CharField(max_length=128)
