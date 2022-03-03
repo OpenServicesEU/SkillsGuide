@@ -186,6 +186,12 @@ HAYSTACK_SIGNAL_PROCESSOR = "SkillsGuide.haystack.SignalProcessor"
 
 COMPRESS_PRECOMPILERS = [("text/x-scss", "SkillsGuide.compressor.DjangoSassCompiler")]
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+
 LOGIN_URL = reverse("saml2:saml2_login")
 LOGOUT_URL = reverse("saml2:saml2_logout")
 LOGIN_REDIRECT_URL = reverse("index")
