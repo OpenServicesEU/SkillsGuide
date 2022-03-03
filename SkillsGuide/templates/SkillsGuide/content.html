@@ -37,14 +37,6 @@
               {% endfor %}
             </div>
           </div>
-          {% if clinical_traineeship_checklist|length > 0 %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url "clinical_traineeship_checklist" %}">
-              <i class="fa fa-check-circle d-none d-xl-inline" aria-hidden="true"></i>
-              {% trans "Clinical traineeships checklist" %}
-            </a>
-          </li>
-          {% endif %}
           {% if top_downloads|length > 0 %}
           <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDownloadLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

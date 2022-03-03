@@ -15,5 +15,4 @@ def navigation(request):
     return {
         "top_downloads": models.Download.objects.filter(active=True, top=True),
         "chapters": models.Chapter.objects.all(),
-        "clinical_traineeship_checklist": load_clinical_traineeship_checklist(),
     }
