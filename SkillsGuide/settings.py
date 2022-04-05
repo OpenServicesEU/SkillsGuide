@@ -202,6 +202,10 @@ LOGOUT_REDIRECT_URL = reverse("index")
 STRONGHOLD_PUBLIC_NAMED_URLS = (
     "saml2:saml2_login",
     "saml2:saml2_logout",
+    "saml2:saml2_ls",
+    "saml2:saml2_ls_post",
+    "saml2:saml2_acs",
+    "saml2:saml2_metadata",
 )
 
 SAML_CREATE_UNKNOWN_USER = True
