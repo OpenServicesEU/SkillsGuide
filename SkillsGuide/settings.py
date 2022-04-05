@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "colorfield",
     "ckeditor",
     "debug_toolbar",
+    "stronghold",
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "djangosaml2.middleware.SamlSessionMiddleware",
+    "stronghold.middleware.LoginRequiredMiddleware",
 ]
 
 ROOT_URLCONF = "SkillsGuide.urls"
@@ -196,6 +198,11 @@ LOGIN_URL = reverse("saml2:saml2_login")
 LOGOUT_URL = reverse("saml2:saml2_logout")
 LOGIN_REDIRECT_URL = reverse("index")
 LOGOUT_REDIRECT_URL = reverse("index")
+
+STRONGHOLD_PUBLIC_NAMED_URLS = (
+    "saml2:saml2_login",
+    "saml2:saml2_logout",
+)
 
 SAML_CREATE_UNKNOWN_USER = True
 SAML_ATTRIBUTE_MAPPING = {
