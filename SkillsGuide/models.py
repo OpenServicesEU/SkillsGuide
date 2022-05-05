@@ -98,6 +98,17 @@ class Image(models.Model):
     file = models.ImageField(upload_to=Uuid4Upload)
 
 
+class Card(OrderedModel):
+    article = models.ForeignKey("Article", on_delete=models.CASCADE)
+    description = models.TextField(_("Description"))
+    image = models.ImageField(upload_to=Uuid4Upload, blank=True, null=True)
+
+    order_with_respect_to = "article"
+
+    class Meta(OrderedModel.Meta):
+        pass
+
+
 class Video(models.Model):
     article = models.ForeignKey("Article", on_delete=models.CASCADE)
     description = models.TextField(_("Description"))

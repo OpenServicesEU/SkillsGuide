@@ -37,6 +37,33 @@
     {{ object.description|safe }}
   </div>
 </section>
+{% if object.card_set.exists %}
+<section class="row mb-4">
+  <div class="col">
+    <h4 class="bg-light p-3" id="images">
+      <i class="fa fa-book" aria-hidden="true"></i>
+      {% trans "Cards" %}
+      <a href="#images" class="text-dark float-right">
+        <i class="fa fa-link" aria-hidden="true"></i>
+      </a>
+    </h4>
+    <div class="card-group">
+      {% for card in object.card_set.all %}
+      <div class="card card-4">
+        {% if card.image %}
+        <a href="{{ card.image.url }}" data-lightbox="cards" data-title="{{ card.description }}">
+          <img class="card-img-top" src="{{ card.image.url }}" alt="{{ card.description }}">
+        </a>
+        {% endif %}
+        <div class="card-body">
+          <small class="text-muted">{{ card.description }}</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 {% if object.image_set.exists %}
 <section class="row mb-4">
   <div class="col">

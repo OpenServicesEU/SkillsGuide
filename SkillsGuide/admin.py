@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import ugettext_lazy as _
-from ordered_model.admin import OrderedModelAdmin
+from ordered_model.admin import OrderedModelAdmin, OrderedTabularInline, OrderedInlineModelAdminMixin
 from reversion.admin import VersionAdmin
 
 from . import models
@@ -27,6 +27,13 @@ class ImageInline(admin.TabularInline):
     model = models.Image
 
 
+class CardInline(OrderedTabularInline):
+    model = models.Card
+    fields = ('description', 'image', 'order', 'move_up_down_links',)
+    readonly_fields = ('order', 'move_up_down_links',)
+    ordering = ('order',)
+
+
 class VideoInline(admin.TabularInline):
     model = models.Video
 
@@ -36,10 +43,10 @@ class SourceInline(admin.StackedInline):
 
 
 @admin.register(models.Article)
-class ArticleAdmin(VersionAdmin, OrderedModelAdmin):
+class ArticleAdmin(VersionAdmin, OrderedInlineModelAdminMixin, OrderedModelAdmin):
     list_display = ("title", "section", "revision", "move_up_down_links")
     list_filter = ("section", "section__chapter", "revision")
-    inlines = (ImageInline, VideoInline, SourceInline)
+    inlines = (ImageInline, CardInline, VideoInline, SourceInline)
 
 
 @admin.register(models.CompetenceLevel)
