@@ -47,9 +47,9 @@
         <i class="fa fa-link" aria-hidden="true"></i>
       </a>
     </h4>
-    <div class="card-deck">
+    <div class="card-columns">
       {% for image in object.image_set.all %}
-      <div class="card w-25">
+      <div class="card">
         <a href="{{ image.file.url }}" data-lightbox="images">
         <img class="card-img-top" src="{{ image.file.url }}" alt="{{ image.description }}">
         </a>
