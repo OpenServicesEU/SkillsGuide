@@ -72,9 +72,9 @@
         <i class="fa fa-link" aria-hidden="true"></i>
       </a>
     </h4>
-    <div class="card-deck">
+    <div class="card-columns">
       {% for video in object.video_set.all %}
-      <div class="card w-25">
+      <div class="card">
         <video class="card-img-top" controls>
           <source src="{{ video.file.url }}" type="video/mp4">
         </video>
