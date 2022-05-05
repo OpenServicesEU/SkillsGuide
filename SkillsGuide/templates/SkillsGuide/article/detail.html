@@ -49,16 +49,28 @@
     </h4>
     <div class="card-group">
       {% for card in object.card_set.all %}
-      <div class="card card-4">
+      <div class="card">
+        <div class="card-header">
+          {{ forloop.counter }}
+        </div>
+        <div class="card-body">
+          <small class="text-muted">{{ card.description }}</small>
+        </div>
         {% if card.image %}
         <a href="{{ card.image.url }}" data-lightbox="cards" data-title="{{ card.description }}">
           <img class="card-img-top" src="{{ card.image.url }}" alt="{{ card.description }}">
         </a>
         {% endif %}
-        <div class="card-body">
-          <small class="text-muted">{{ card.description }}</small>
-        </div>
       </div>
+      {% if not forloop.last %}
+      <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 1 on sm--></div>
+      {% if forloop.counter|divisibleby:3 %}
+      <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+      {% endif %}
+      {% if forloop.counter|divisibleby:4 %}
+      <div class="w-100 d-none d-lg-block"><!-- wrap every 4 on lg--></div>
+      {% endif %}
+      {% endif %}
       {% endfor %}
     </div>
   </div>
