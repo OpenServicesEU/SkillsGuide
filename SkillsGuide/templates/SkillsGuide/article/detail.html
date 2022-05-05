@@ -47,9 +47,9 @@
         <i class="fa fa-link" aria-hidden="true"></i>
       </a>
     </h4>
-    <div class="card-columns">
+    <div class="row card-group">
       {% for image in object.image_set.all %}
-      <div class="card">
+      <div class="card col-md-4">
         <a href="{{ image.file.url }}" data-lightbox="images">
         <img class="card-img-top" src="{{ image.file.url }}" alt="{{ image.description }}">
         </a>
@@ -72,9 +72,9 @@
         <i class="fa fa-link" aria-hidden="true"></i>
       </a>
     </h4>
-    <div class="card-columns">
+    <div class="row card-group">
       {% for video in object.video_set.all %}
-      <div class="card">
+      <div class="card col-md-4">
         <video class="card-img-top" controls>
           <source src="{{ video.file.url }}" type="video/mp4">
         </video>
