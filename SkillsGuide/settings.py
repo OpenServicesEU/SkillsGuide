@@ -310,6 +310,7 @@ AUTHENTICATION_BACKENDS = (
     "rules.permissions.ObjectPermissionBackend",
     "guardian.backends.ObjectPermissionBackend",
     "django.contrib.auth.backends.ModelBackend",
+    "django_auth_ldap.backend.LDAPBackend",
     "djangosaml2.backends.Saml2Backend",
 )
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
